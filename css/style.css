@@ -114,6 +114,8 @@ section {
 .home-img img {
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 0 10px #fc03ef);
+  transition: all 0.5s ease;
 }
 .home-text h1 {
   font-size: var(--big-font);
@@ -209,6 +211,8 @@ header.sticky {
 .about-img img {
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 0 10px #fc03ef);
+  transition: all 0.5s ease;
 }
 .about-text h2 {
   font-family: var(--h2-font);
@@ -255,6 +259,7 @@ header.sticky {
   height: auto;
   transition: transform 0.5s ease;
   cursor: pointer;
+  filter: drop-shadow(0 0 10px #fc03ef);
 }
 .row h3 {
   font-size: 18px;
@@ -309,6 +314,7 @@ header.sticky {
 }
 .row img:hover {
   transform: scale(1.1);
+  filter: drop-shadow(0 0 20px #fc03ef);
 }
 
 /* REVIEWS */
@@ -340,6 +346,8 @@ header.sticky {
   width: 100%;
   height: auto;
   border-radius: 3rem;
+  filter: drop-shadow(0 0 10px #fc03ef);
+  transition: all 0.5s ease;
 }
 .bxx-text h4 {
   margin: 5px 0;
@@ -380,10 +388,12 @@ header.sticky {
   height: auto;
   cursor: pointer;
   transition: all 0.5s ease;
+  filter: drop-shadow(0 0 10px #fc03ef);
 }
 
 .contact-img img:hover {
   transform: scale(0.9);
+  filter: drop-shadow(0 0 20px #fc03ef);
 }
 
 .contact-text {
@@ -611,6 +621,7 @@ header.sticky {
   border-radius: 1.5rem;
   margin-bottom: 1.5rem;
   transition: all 0.5s ease;
+  filter: drop-shadow(0 0 10px #fc03ef);
 }
 
 .cat-box h3 {
@@ -645,10 +656,12 @@ header.sticky {
 
 .cat-box:hover {
   transform: translateY(-8px);
+  filter: drop-shadow(0 0 15px #fc03ef);
 }
 
 .cat-box:hover img {
   transform: scale(1.05);
+  filter: drop-shadow(0 0 20px #fc03ef);
 }
 
 .cat-btn:hover {
