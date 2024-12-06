@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KEITH || MAKEUP SHOPS</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="img/main/hero.png" />
 
     <!-- box icons -->
     <link
@@ -35,10 +36,55 @@
 
       <div class="nav-icons">
         <a href="#"><i class="bx bx-search"></i></a>
-        <a href="#"><i class="bx bx-cart"></i></a>
+        <div class="cart-icon">
+          <i class="bx bx-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
     </header>
+
+    <!-- cart modal -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h3>Shopping Cart</h3>
+          <button class="close-cart"><i class="bx bx-x"></i></button>
+        </div>
+        <div class="cart-items">
+          <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">Total: ₱<span id="cartTotal">0.00</span></div>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- thank you modal -->
+    <div class="thank-you-modal" id="thankYouModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Thank You for Your Purchase!</h3>
+          <button class="close-modal" onclick="closeThankYouModal()">
+            <i class="bx bx-x"></i>
+          </button>
+        </div>
+        <div class="purchase-details">
+          <h4>Order Summary:</h4>
+          <div id="purchasedItems"></div>
+          <div class="total-amount">
+            Total Amount: ₱<span id="purchaseTotal"></span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p>Your order will be processed shortly.</p>
+          <button class="continue-shopping" onclick="closeThankYouModal()">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- home section -->
     <section class="home" id="home">
@@ -116,9 +162,17 @@
             <div class="price">
               <h6>₱199.00</h6>
             </div>
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="decrementQuantity(this)">
+                -
+              </button>
+              <input type="number" value="1" min="1" class="qty-input" />
+              <button class="qty-btn" onclick="incrementQuantity(this)">
+                +
+              </button>
+            </div>
             <div class="s-btnn">
-              <a href="#">Order Now</a>
-              <a href="#" class="cart-btn">Add to Cart</a>
+              <button class="add-to-cart">Add to Cart</button>
             </div>
           </div>
 
@@ -134,9 +188,17 @@
             <div class="price">
               <h6>₱229.00</h6>
             </div>
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="decrementQuantity(this)">
+                -
+              </button>
+              <input type="number" value="1" min="1" class="qty-input" />
+              <button class="qty-btn" onclick="incrementQuantity(this)">
+                +
+              </button>
+            </div>
             <div class="s-btnn">
-              <a href="#">Order Now</a>
-              <a href="#" class="cart-btn">Add to Cart</a>
+              <button class="add-to-cart">Add to Cart</button>
             </div>
           </div>
 
@@ -152,9 +214,17 @@
             <div class="price">
               <h6>₱150.00</h6>
             </div>
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="decrementQuantity(this)">
+                -
+              </button>
+              <input type="number" value="1" min="1" class="qty-input" />
+              <button class="qty-btn" onclick="incrementQuantity(this)">
+                +
+              </button>
+            </div>
             <div class="s-btnn">
-              <a href="#">Order Now</a>
-              <a href="#" class="cart-btn">Add to Cart</a>
+              <button class="add-to-cart">Add to Cart</button>
             </div>
           </div>
 
@@ -300,14 +370,14 @@
             exceptional service and quality of their products. The staff were
             friendly and knowledgeable, and helped me find the perfect makeup
             look for my special occasion. I highly recommend this shop to anyone
-            looking for a great makeup experience!" - Emily R.
+            looking for a great makeup experience!" - Alyza Queen Dela Cruz.
           </p>
           <div class="in-box">
             <div class="bx-img">
               <!-- <img src="img/r2.jpg" /> -->
             </div>
             <div class="bxx-text">
-              <h4>Darwin Melaya</h4>
+              <h4>Alyza Queen Dela Cruz</h4>
               <div class="ratings">
                 <a href="#"><i class="bx bxs-star"></i></a>
                 <a href="#"><i class="bx bxs-star"></i></a>
@@ -320,18 +390,19 @@
 
         <div class="box">
           <p>
-            "I recently visited Keith Makeup Shops and was blown away by the
-            exceptional service and quality of their products. The staff were
-            friendly and knowledgeable, and helped me find the perfect makeup
-            look for my special occasion. I highly recommend this shop to anyone
-            looking for a great makeup experience!" - Emily R.
+            "Keith Makeup Shops has an amazing selection of high-quality makeup
+            products. I love how they carry both luxury and affordable brands.
+            The staff really know their stuff and gave me great recommendations
+            for my skin type. The store is always clean and well-organized.
+            Shopping here is always a wonderful experience!" - Shiela Mae
+            Lacanaria.
           </p>
           <div class="in-box">
             <div class="bx-img">
               <!-- <img src="img/r3.jpg" /> -->
             </div>
             <div class="bxx-text">
-              <h4>Darwin Melaya</h4>
+              <h4>Shiela Mae Lacanaria</h4>
               <div class="ratings">
                 <a href="#"><i class="bx bxs-star"></i></a>
                 <a href="#"><i class="bx bxs-star"></i></a>
@@ -378,6 +449,50 @@
       </div>
     </section>
 
+    <!-- contact form section -->
+    <section class="contact-form" id="contact-form">
+      <div class="contact-container">
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="contact-left"
+        >
+          <div class="contact-left-title">
+            <h2>Email Us!</h2>
+            <hr />
+          </div>
+          <input
+            type="hidden"
+            name="access_key"
+            value="e5e27d4d-6b36-4ec4-a219-fa764ef5c428"
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            class="contact-inputs"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            class="contact-inputs"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            class="contact-inputs"
+            required
+          ></textarea>
+          <button type="submit" class="submit-btn">
+            Submit <i class="bx bx-right-arrow-alt"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
     <!-- scroll top -->
     <a href="#" class="scroll">
       <i class="bx bx-up-arrow-alt"></i>
@@ -387,5 +502,158 @@
 
     <!-- link to js -->
     <script src="js/script.js"></script>
+
+    <!-- Cart functionality -->
+    <script>
+      // Cart functionality
+      let cartItems = [];
+      const cartModal = document.getElementById("cartModal");
+      const cartCount = document.querySelector(".cart-count");
+      const cartItemsContainer = document.querySelector(".cart-items");
+      const cartTotal = document.getElementById("cartTotal");
+
+      // Toggle cart modal
+      document.querySelector(".cart-icon").addEventListener("click", () => {
+        cartModal.classList.toggle("open");
+        updateCartDisplay();
+      });
+
+      document.querySelector(".close-cart").addEventListener("click", () => {
+        cartModal.classList.remove("open");
+      });
+
+      // Add to cart functionality
+      document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", function () {
+          const row = this.closest(".row");
+          const productImg = row.querySelector("img").src;
+          const productTitle = row.querySelector("h3").textContent;
+          const productPrice = parseFloat(
+            row.querySelector(".price h6").textContent.replace("₱", "")
+          );
+          const quantity = parseInt(
+            row.querySelector(".qty-input")?.value || 1
+          );
+
+          // Add item to cart
+          const existingItem = cartItems.find(
+            (item) => item.title === productTitle
+          );
+          if (existingItem) {
+            existingItem.quantity += quantity;
+          } else {
+            cartItems.push({
+              title: productTitle,
+              price: productPrice,
+              quantity: quantity,
+              image: productImg,
+            });
+          }
+
+          updateCartDisplay();
+          cartModal.classList.add("open");
+        });
+      });
+
+      function updateCartDisplay() {
+        // Update cart count
+        const totalItems = cartItems.reduce(
+          (sum, item) => sum + item.quantity,
+          0
+        );
+        cartCount.textContent = totalItems;
+
+        // Update cart items display
+        cartItemsContainer.innerHTML = cartItems
+          .map(
+            (item) => `
+            <div class="cart-item">
+              <img src="${item.image}" alt="${item.title}">
+              <div class="cart-item-details">
+                <div class="cart-item-title">${item.title}</div>
+                <div class="cart-item-price">₱${(
+                  item.price * item.quantity
+                ).toFixed(2)}</div>
+                <div class="cart-item-quantity">Qty: ${item.quantity}</div>
+              </div>
+              <button class="remove-item" onclick="removeItem('${item.title}')">
+                <i class="bx bx-x"></i>
+              </button>
+            </div>
+          `
+          )
+          .join("");
+
+        // Update total
+        const total = cartItems.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        cartTotal.textContent = total.toFixed(2);
+      }
+
+      // Rest of the functions
+      function removeItem(title) {
+        cartItems = cartItems.filter((item) => item.title !== title);
+        updateCartDisplay();
+      }
+
+      function incrementQuantity(btn) {
+        const input = btn.previousElementSibling;
+        input.value = parseInt(input.value) + 1;
+      }
+
+      function decrementQuantity(btn) {
+        const input = btn.nextElementSibling;
+        if (parseInt(input.value) > 1) {
+          input.value = parseInt(input.value) - 1;
+        }
+      }
+
+      function showThankYouModal() {
+        const thankYouModal = document.getElementById("thankYouModal");
+        const purchasedItemsDiv = document.getElementById("purchasedItems");
+        const purchaseTotal = document.getElementById("purchaseTotal");
+
+        const itemsHTML = cartItems
+          .map(
+            (item) => `
+            <div class="purchased-item">
+              <span>${item.title} x${item.quantity}</span>
+              <span>₱${(item.price * item.quantity).toFixed(2)}</span>
+            </div>
+          `
+          )
+          .join("");
+
+        const total = cartItems.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+
+        purchasedItemsDiv.innerHTML = itemsHTML;
+        purchaseTotal.textContent = total.toFixed(2);
+
+        thankYouModal.classList.add("open");
+        cartModal.classList.remove("open");
+
+        cartItems = [];
+        updateCartDisplay();
+      }
+
+      function closeThankYouModal() {
+        const thankYouModal = document.getElementById("thankYouModal");
+        thankYouModal.classList.remove("open");
+      }
+
+      // Add checkout button handler
+      document
+        .querySelector(".checkout-btn")
+        .addEventListener("click", function () {
+          if (cartItems.length > 0) {
+            showThankYouModal();
+          }
+        });
+    </script>
   </body>
 </html>

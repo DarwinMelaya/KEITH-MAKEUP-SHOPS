@@ -1286,3 +1286,146 @@ header.sticky {
     padding: 15px;
   }
 }
+
+/* Contact Form Section */
+.contact-form {
+  padding: 70px 14% 60px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  align-items: center;
+  background: var(--other-color);
+  border-radius: 3rem;
+  padding: 45px;
+  box-shadow: 0 0 20px rgba(252, 3, 239, 0.3);
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-left-title {
+  margin-bottom: 1rem;
+}
+
+.contact-left-title h2 {
+  font-size: var(--h2-font);
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.contact-left-title hr {
+  border: none;
+  height: 2px;
+  background: var(--main-color);
+  width: 50%;
+}
+
+.contact-inputs {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--main-color);
+  background: var(--bg-color);
+  border-radius: 2rem;
+  color: var(--text-color);
+  font-size: var(--p-font);
+  transition: all 0.3s ease;
+}
+
+.contact-inputs:focus {
+  border-color: var(--second-color);
+  box-shadow: 0 0 15px rgba(252, 3, 239, 0.3);
+  outline: none;
+}
+
+textarea.contact-inputs {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 35px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  font-size: var(--p-font);
+  font-weight: 500;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn i {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+  box-shadow: 0 0 20px rgba(252, 3, 239, 0.5);
+}
+
+.submit-btn:hover i {
+  transform: translateX(5px);
+}
+
+.contact-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-right img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 0 15px #fc03ef);
+  transition: all 0.5s ease;
+}
+
+.contact-right img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 25px #fc03ef);
+}
+
+/* Responsive adjustments for contact form */
+@media (max-width: 1024px) {
+  .contact-container {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-right {
+    order: -1;
+  }
+
+  .contact-right img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 20px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
